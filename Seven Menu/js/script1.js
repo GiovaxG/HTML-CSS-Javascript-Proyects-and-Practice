@@ -3,9 +3,18 @@ $(document).ready(function () {
         $('#nav-toggle').prop('checked', false);
     });
 
-    $('.category-item').on('click', function (event) {
+    $('.product-name a').on('click', function (event) {
         event.preventDefault();
 
+        const productName = $(this).text().trim();
+        const message = encodeURIComponent(`Hola Seven, me interesa el producto: ${productName}`);
+        const whatsappUrl = `https://wa.me/5493812146046?text=${message}`;
+
+        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    });
+
+    $('.category-item').on('click', function (event) {
+        event.preventDefault();
         const selectedCategory = $(this).data('category');
 
         $('.category-item')
